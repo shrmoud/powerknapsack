@@ -5,13 +5,19 @@ from __future__ import print_function
 import pyslurm
 import sys
 
-table = []
 
-def main():
+
+"""
+if(col < wt[row]) then T[row][col] = T[row-1][col]
+else T[row][col] = max(val[row] + t[row-1][col - wt[row]], t[row-1][col])
+"""
+
+def main(power_capacity, num_nodes_capacity):
 	try:
 		a = pyslurm.job()
 		jobs = a.get()
 		job_size = len(jobs)
+		table = [power_capacity+1][job_size]
 		if (job_size > 0):
 			display(jobs)
 			njobs = len(jobs)
@@ -22,7 +28,6 @@ def main():
 	except ValueError as e:
 		print("Job query failed - {0}".format(e.args[0]))
 	
-
 
 def displayJobDict(job_dict):
     if job_dict:
@@ -47,9 +52,9 @@ def solve(a, power_capacity,job_size):
 
     return best;
 
-
-
-
+	
+	
+	
 def getCell(row, col):
     if (col < 0 || row < 0):
         return 0
@@ -81,11 +86,32 @@ def getCell(row, col):
     return cell
 
 
-def traceTable():
-    pass
+def traceTable(power_capacity, jobs):
+	best = []
+	row = power_capacity
+	col = jobs.size() - 1
+	
+	while (col >= 0):
+		item = jobs[col]
+		without = col == 0 ? 0 : table[row][col - 1]
+		if(table[row][col] != without):
+			best += item
+			row -= round(item.getTotalPowerForRacks())
+		col -= 1
+	return best
 
 
+def printResultTable(jobs, num_nodes_capacity, table):
+	print("\n")
+	job_size = len(jobs)
 
+	for r in range(num_nodes_capacity+1):
+		for c in range(job_size):
+			print(table[r][c] + "\t")
+		print("\n")
 
+	
 if __name__ == "__main__":
+	#num_nodes_capacity
+	#power_capacity
 	main()
