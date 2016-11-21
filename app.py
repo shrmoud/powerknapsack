@@ -1,11 +1,11 @@
+#Written by Shreyas Moudgalya
 #!/usr/bin/env python
 
 from __future__ import print_function
 
 import pyslurm
 import sys
-
-
+from time import gmtime, strftime
 
 """
 if(col < wt[row]) then T[row][col] = T[row-1][col]
@@ -86,6 +86,31 @@ def getCell(row, col):
     return cell
 
 
+	
+def JobQueue():
+	a = pyslurm.job()
+	jobs = pyslurm.get()
+	
+	if jobs:
+		date_fields = [ 'start_time','suspend_time','submit_time','end_time','eligible_time','resize_time']
+
+		for key, value in jobs.iteritems():
+			print "Job ID : %s" % (key)
+			for part_key in sorted(value.iterkeys()):
+				if part_key in date_fields:
+					if value[part_key] == 0:
+						print "\t%-20s : N/A" % (part_key)
+					else:
+						ddate = gmtime(value[part_key])
+						ddate = strftime("%a %b %d %H:%M:%S %Y", ddate)
+						print "\t%-20s : %s" % (part_key, ddate)
+				else:
+					print "\t%-20s : %s" % (part_key, value[part_key])
+			print "-" * 80
+	else:
+		print "No jobs found !"
+	
+	
 def traceTable(power_capacity, jobs):
 	best = []
 	row = power_capacity
