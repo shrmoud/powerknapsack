@@ -1,0 +1,74 @@
+************************* Slurm Controller Statistics **************************
+bf_cycle_sum              : 1776             
+bf_queue_len_sum          : 3                
+bf_last_backfilled_jobs   : 2                
+bf_when_last_cycle        : Sat Nov 26 03:20:28 2016
+bf_last_depth             : 1                
+schedule_cycle_sum        : 13463            
+bf_queue_len              : 1                
+schedule_cycle_last       : 15               
+bf_active                 : 0                
+schedule_queue_len        : 0                
+schedule_cycle_depth      : 35               
+req_time_start            : Sat Nov 26 02:42:52 2016
+jobs_submitted            : 21               
+bf_cycle_counter          : 3                
+rpc_user_stats            :
+	rpc_user_id  : root           
+		count        : 252            
+		total_time   : 111682         
+		id           : 0              
+		ave_time     : 443            
+bf_cycle_last             : 699              
+bf_cycle_max              : 954              
+schedule_cycle_max        : 969              
+rpc_type_stats            :
+	rpc_type_id  : REQUEST_PARTITION_INFO
+		count        : 97             
+		total_time   : 39895          
+		id           : 2009           
+		ave_time     : 411            
+	rpc_type_id  : REQUEST_COMPLETE_BATCH_SCRIPT
+		count        : 21             
+		total_time   : 13155          
+		id           : 5018           
+		ave_time     : 626            
+	rpc_type_id  : REQUEST_SUBMIT_BATCH_JOB
+		count        : 21             
+		total_time   : 20679          
+		id           : 4003           
+		ave_time     : 984            
+	rpc_type_id  : MESSAGE_NODE_REGISTRATION_STATUS
+		count        : 3              
+		total_time   : 960            
+		id           : 1002           
+		ave_time     : 320            
+	rpc_type_id  : REQUEST_JOB_INFO
+		count        : 12             
+		total_time   : 4103           
+		id           : 2003           
+		ave_time     : 341            
+	rpc_type_id  : REQUEST_NODE_INFO
+		count        : 97             
+		total_time   : 32508          
+		id           : 2007           
+		ave_time     : 335            
+	rpc_type_id  : REQUEST_STATS_INFO
+		count        : 1              
+		total_time   : 382            
+		id           : 2035           
+		ave_time     : 382            
+bf_backfilled_jobs        : 2                
+req_time                  : Sat Nov 26 03:23:21 2016
+parts_packed              : 1                
+bf_last_depth_try         : 1                
+jobs_failed               : 0                
+schedule_cycle_counter    : 82               
+jobs_canceled             : 0                
+jobs_completed            : 21               
+bf_depth_try_sum          : 3                
+bf_depth_sum              : 3                
+server_thread_count       : 3                
+agent_queue_size          : 0                
+jobs_started              : 21               
+********************************************************************************
