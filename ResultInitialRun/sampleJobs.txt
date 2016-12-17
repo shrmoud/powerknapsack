@@ -1,0 +1,3 @@
+Sample Jobs File
+
+sbatch --wrap="sleep 1000" --partition=normal -N 1
