@@ -4,11 +4,12 @@ import pyslurm
 import sys
 from time import gmtime, strftime
 
+#Sample Jobs
 windowsize = 5
 jobsize = [3, 1, 5, 4]
 pweight = [60, 50, 30, 40]
-powerweight = []
 capacity = 230
+
 
 def solveKnapsack():
 	global jobsize
